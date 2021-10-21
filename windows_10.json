@@ -233,6 +233,18 @@
         "./scripts/compact.bat"
       ],
       "type": "windows-shell"
+    },
+    {
+      "type": "file",
+      "source": "/apps/MATLAB/R2021a",
+      "destination": "C:\\tmp\\"
+    },
+    {
+      "type": "powershell",
+      "remote_path": "/tmp/R2021a/script.ps1",
+      "scripts": [
+        "./scripts/install_matlab.ps1"
+      ]
     }
   ],
   "variables": {
