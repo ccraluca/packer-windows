@@ -236,8 +236,8 @@
     },
     {
       "type": "file",
-      "source": "/apps/MATLAB/R2021a",
-      "destination": "C:\\tmp\\"
+      "source": "/apps/TEST/test",
+      "destination": "\\tmp\\"
     },
     {
       "type": "powershell",
