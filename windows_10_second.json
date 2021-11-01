@@ -1,0 +1,28 @@
+{
+  "builders": [
+     {
+       "boot_wait": "10m",
+       "type": "virtualbox-ovf",
+       "source_path": "/apps/windows_10_virtualbox.ovf",
+       "communicator": "winrm",
+       "headless": "{{user `headless`}}",
+       "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
+       "winrm_password": "vagrant",
+       "winrm_timeout": "{{user `winrm_timeout`}}",
+       "winrm_username": "vagrant"
+     }
+  ],
+  "provisioners": [],
+  "post-processors": [
+     {
+       "compression_level": 9,
+       "keep_input_artifact": true,
+       "output": "windows_10_{{.Provider}}.box",
+       "type": "vagrant"
+     }
+  ],
+  "variables": {
+    "headless": "true",
+    "winrm_timeout": "6h"
+  }
+}
