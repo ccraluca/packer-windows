@@ -15,7 +15,9 @@
         "./scripts/disable-winrm.ps1",
         "./scripts/enable-winrm.ps1",
         "./scripts/microsoft-updates.bat",
-        "./scripts/win-updates.ps1"
+        "./scripts/win-updates.ps1",
+	"{{user `matlab_install_input`}}",
+        "{{user `matlab_license_file`}}"
       ],
       "headless": true,
       "iso_checksum": "{{user `iso_checksum`}}",
@@ -34,6 +36,10 @@
         [
           "-drive",
           "file={{ user `virtio_win_iso` }},media=cdrom,index=3"
+        ],
+	[
+          "-drive",
+          "file={{ user `matlab_iso` }},media=cdrom,index=2"
         ]
       ],
       "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
@@ -126,7 +132,9 @@
         "./scripts/disable-winrm.ps1",
         "./scripts/enable-winrm.ps1",
         "./scripts/microsoft-updates.bat",
-        "./scripts/win-updates.ps1"
+        "./scripts/win-updates.ps1",
+	"{{user `matlab_install_input`}}",
+        "{{user `matlab_license_file`}}"
       ],
       "guest_additions_mode": "disable",
       "guest_os_type": "Windows10_64",
@@ -136,6 +144,9 @@
       "memory": "{{user `memory`}}",
       "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
       "type": "virtualbox-iso",
+      "vboxmanage": [
+        ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "dvddrive", "--medium", "{{user `matlab_iso`}}"]
+      ],
       "vm_name": "{{user `vm_name`}}",
       "winrm_password": "vagrant",
       "winrm_timeout": "{{user `winrm_timeout`}}",
@@ -222,6 +233,13 @@
       "type": "powershell"
     },
     {
+      "scripts": [
+        "./scripts/install_matlab.ps1",
+        "./scripts/spinwci.ps1"
+      ],
+      "type": "powershell"
+    },
+    {
       "execute_command": "{{ .Vars }} cmd /c \"{{ .Path }}\"",
       "remote_path": "/tmp/script.bat",
       "scripts": [
@@ -233,17 +251,6 @@
         "./scripts/compact.bat"
       ],
       "type": "windows-shell"
-    },
-    {
-      "type": "file",
-      "source": "/apps/MATLAB/R2021a",
-      "destination": "\\tmp\\"
-    },
-    {
-      "type": "powershell",
-      "scripts": [
-        "./scripts/install_matlab.ps1"
-      ]
     }
   ],
   "variables": {
@@ -257,6 +264,9 @@
     "restart_timeout": "5m",
     "vhv_enable": "false",
     "virtio_win_iso": "~/virtio-win.iso",
+    "matlab_iso": "/var/lib/jenkins/workspace/users/rchis/R2021a_Update_5_Windows.iso",
+    "matlab_install_input": "/var/lib/jenkins/workspace/users/rchis/installer_input.txt",
+    "matlab_license_file": "/var/lib/jenkins/workspace/users/rchis/license.lic",
     "vm_name": "windows_10",
     "winrm_timeout": "6h",
     "vmx_version": "14"
