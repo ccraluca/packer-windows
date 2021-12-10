@@ -1,4 +1,4 @@
-E:
+C:
 #$proc = Invoke-WmiMethod -Class win32_process -Name create -ArgumentList ".\setup.exe 
 #$proc = Start-Process .\setup.exe -ArgumentList "-inputFile A:\installer_input.txt" -PassThru
 .\setup.exe -inputFile A:\installer_input.txt

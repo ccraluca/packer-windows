@@ -234,7 +234,6 @@
     },
     {
       "scripts": [
-        "./scripts/install_matlab.ps1",
         "./scripts/spinwci.ps1"
       ],
       "type": "powershell"
