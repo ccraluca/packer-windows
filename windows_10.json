@@ -14,8 +14,7 @@
         "./scripts/disable-screensaver.ps1",
         "./scripts/disable-winrm.ps1",
         "./scripts/enable-winrm.ps1",
-        "./scripts/microsoft-updates.bat",
-        "./scripts/win-updates.ps1",
+	"./scripts/win-updates.ps1",
 	"{{user `matlab_install_input`}}",
         "{{user `matlab_license_file`}}"
       ],
@@ -63,8 +62,7 @@
         "./scripts/disable-screensaver.ps1",
         "./scripts/disable-winrm.ps1",
         "./scripts/enable-winrm.ps1",
-        "./scripts/microsoft-updates.bat",
-        "./scripts/win-updates.ps1"
+	"./scripts/win-updates.ps1"
       ],
       "guest_additions_mode": "none",
       "iso_checksum": "{{user `iso_checksum`}}",
@@ -94,8 +92,7 @@
         "./scripts/disable-screensaver.ps1",
         "./scripts/disable-winrm.ps1",
         "./scripts/enable-winrm.ps1",
-        "./scripts/microsoft-updates.bat",
-        "./scripts/win-updates.ps1"
+	"./scripts/win-updates.ps1"
       ],
       "guest_os_type": "windows9-64",
       "headless": "{{user `headless`}}",
@@ -131,8 +128,7 @@
         "./scripts/disable-screensaver.ps1",
         "./scripts/disable-winrm.ps1",
         "./scripts/enable-winrm.ps1",
-        "./scripts/microsoft-updates.bat",
-        "./scripts/win-updates.ps1",
+	"./scripts/win-updates.ps1",
 	"{{user `matlab_install_input`}}",
         "{{user `matlab_license_file`}}"
       ],
@@ -166,8 +162,7 @@
         "./scripts/disable-screensaver.ps1",
         "./scripts/disable-winrm.ps1",
         "./scripts/enable-winrm.ps1",
-        "./scripts/microsoft-updates.bat",
-        "./scripts/win-updates.ps1"
+	"./scripts/win-updates.ps1"
       ],
       "guest_os_type": "win-10",
       "iso_checksum": "{{user `iso_checksum`}}",
@@ -245,7 +240,6 @@
         "./scripts/pin-powershell.bat",
         "./scripts/compile-dotnet-assemblies.bat",
         "./scripts/set-winrm-automatic.bat",
-        "./scripts/uac-enable.bat",
         "./scripts/dis-updates.bat",
         "./scripts/compact.bat"
       ],
