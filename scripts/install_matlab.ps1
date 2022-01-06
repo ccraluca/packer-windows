@@ -1,7 +1,2 @@
-C:
-#$proc = Invoke-WmiMethod -Class win32_process -Name create -ArgumentList ".\setup.exe 
-#$proc = Start-Process .\setup.exe -ArgumentList "-inputFile A:\installer_input.txt" -PassThru
-.\setup.exe -inputFile A:\installer_input.txt
-Start-Sleep -Seconds 30
-$proc = Get-Process -Name setup | where { $_.MainModule.FileName -eq "e:\bin\win64\setup.exe" }
-Wait-Process -Id $proc.Id -Timeout 1200
+D:\\setup.exe -inputFile C:\\USERS\\VAGRANT\\DOCUMENTS\\matlab-files\\installer_input.txt
+Start-Sleep -s 1800
