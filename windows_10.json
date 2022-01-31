@@ -241,7 +241,7 @@
   ],
   "variables": {
     "autounattend": "./answer_files/10/Autounattend.xml",
-    "disk_size": "61440",
+    "disk_size": "91440",
     "disk_type_id": "1",
     "memory": "2048",
     "headless": "false",
