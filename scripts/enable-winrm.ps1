@@ -5,7 +5,9 @@ $Connections | ForEach-Object { $_.GetNetwork().SetCategory(1) }
 Enable-PSRemoting -Force
 winrm quickconfig -q
 winrm quickconfig -transport:http
-winrm set winrm/config '@{MaxTimeoutms="1800000"}'
+winrm set winrm/config '@{MaxTimeoutms="57600000"}'
+winrm set winrm/config '@{MaxShellRunTime="57600000"}'
+winrm set winrm/config '@{IdleTimeout="57600000"}'
 winrm set winrm/config/winrs '@{MaxMemoryPerShellMB="800"}'
 winrm set winrm/config/service '@{AllowUnencrypted="true"}'
 winrm set winrm/config/service/auth '@{Basic="true"}'
