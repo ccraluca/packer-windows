@@ -4,6 +4,10 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "windows"
 
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "4096"
+  end
+
   config.vm.communicator = "winrm"
 
   #config.vm.disk :disk, size: "300GB", primary: true
