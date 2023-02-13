@@ -1,3 +1,6 @@
+Write-Output "Add Xilinx certificate."
+certutil -addstore "TrustedPublisher" 'C:\\USERS\\VAGRANT\\DOCUMENTS\\vivado-files\\Xilinx Inc.cer'
+
 Write-Output "Map Network Drive."
 net use z: \\10.48.65.12\Vivado_share /user:vagrant vagrant /persistent:Yes
 Write-Output "Display mapped drive."
