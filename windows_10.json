@@ -119,6 +119,7 @@
       "type": "virtualbox-iso",
       "boot_command": "",
       "boot_wait": "6m",
+      "nested_virt": "true",
       "communicator": "winrm",
       "cpus": 2,
       "disk_size": "{{user `disk_size`}}",
